@@ -1,0 +1,19 @@
+prometheus:
+  service:
+    type: NodePort
+    nodePort: 30091  # specify a nodePort if needed, or let Kubernetes assign one automatically
+
+alertmanager:
+  service:
+    type: NodePort
+    nodePort: 30092 # specify a nodePort if needed, or let Kubernetes assign one automatically
+    alertmanagerSpec:
+      replicas: 2
+      logLevel: info
+    cluster:
+      enabled: true
+
+grafana:
+  service:
+    type: NodePort
+    nodePort: 30093  # specify a nodePort if needed, or let Kubernetes assign one automatically
